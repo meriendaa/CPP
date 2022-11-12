@@ -34,12 +34,23 @@ void PhoneBook::searchCont() const{
     }
 }
 
+
+
 void PhoneBook::askForInd() const{
     std::string index_str;
     int index = 0;
     int loop = 0;
     
     do{
+        if (loop != 0)
+            std::cout << "The given index is not valid!" << std::endl;
+        std::cout << "Enter the index [0-7]" << std::endl;
+		std::cout << "> ";
+		std::getline(std::cin, index_str);
+		std::cout << std::endl;
+		loop++;
 
-    }while(indexStr.size() != 1)
+    }while(index_str.size() != 1);
+    index = atoi(index_str.c_str());
+    contacts[index].printContact();
 }

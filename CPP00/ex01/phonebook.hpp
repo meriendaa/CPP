@@ -10,10 +10,10 @@ class PhoneBook {
         int size;
     public:
         PhoneBook();
-        ~PhoneBook();
         int addContact();
-        void askForInd() const;
         void searchCont() const;
+        void askForInd() const;
+        
 };
 
 #endif
