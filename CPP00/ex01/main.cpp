@@ -27,10 +27,8 @@ int main()
         {
             phb.searchCont();
             phb.askForInd();
-        }
-            
+        } 
         else if(cmd.compare("EXIT") == 0)
-            //exit;
             break ;
     }
 }

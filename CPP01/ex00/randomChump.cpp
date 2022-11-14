@@ -1,0 +1,9 @@
+#include <iostream>
+#include "zombie.hpp"
+
+void randomChump(std::string name)
+{
+    Zombie *zombie = new Zombie(name);
+    zombie->announce();
+    delete zombie;
+}

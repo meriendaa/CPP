@@ -10,13 +10,22 @@ PhoneBook::PhoneBook()
 
 int PhoneBook::addContact()
 {
-    if (this->size == 8)
+
+    if (this->size >= 8)
     {
-        std::cout << "PhoneBook is full..." << std::endl;
+        contacts[0].shortPrint(0);
+        for (int i = 0; i < 7; i++)
+        {
+            contacts[i] = contacts[i + 1];
+        }
+        contacts[7].readInput();
         return (1);
     }
-    contacts[this->size].readInput();
-    this->size++;
+    if (this->size < 8)
+    {
+        contacts[this->size].readInput();
+        this->size++;
+    }
     return (0);
 }
 
@@ -34,23 +43,27 @@ void PhoneBook::searchCont() const{
     }
 }
 
-
-
 void PhoneBook::askForInd() const{
     std::string index_str;
     int index = 0;
-    int loop = 0;
-    
-    do{
-        if (loop != 0)
-            std::cout << "The given index is not valid!" << std::endl;
+    int loop = 1;
+
+    if (this->size == 0)
+    {
+        std::cout << "PHONEBOOK IS EMPTY" << std::endl;
+        
+    }else{
+            while(loop == 1)
+    {
         std::cout << "Enter the index [0-7]" << std::endl;
 		std::cout << "> ";
-		std::getline(std::cin, index_str);
+        std::getline(std::cin, index_str);
 		std::cout << std::endl;
-		loop++;
-
-    }while(index_str.size() != 1);
-    index = atoi(index_str.c_str());
+        index = atoi(index_str.c_str());
+        if (index < this->size)
+            loop = 0;
+    }
     contacts[index].printContact();
+    }
+
 }
