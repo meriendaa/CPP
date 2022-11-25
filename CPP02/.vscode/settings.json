@@ -1,0 +1,11 @@
+{
+    "files.associations": {
+        "algorithm": "cpp",
+        "chrono": "cpp",
+        "limits": "cpp",
+        "bitset": "cpp",
+        "system_error": "cpp",
+        "typeinfo": "cpp",
+        "iosfwd": "cpp"
+    }
+}
