@@ -82,12 +82,22 @@ Fixed Fixed::operator-(const Fixed &fixed)
 //MULTI
 Fixed Fixed::operator*(const Fixed &fixed)
 {
+    Fixed aux;
+    float num;
 
+    num = this->toFloat() *  fixed.toFloat();
+    aux.setRawBits(roundf(num * (1 << this->fracc)));
+    return(aux);
 }
 //DIVI
 Fixed Fixed::operator/(const Fixed &fixed)
 {
+    Fixed aux;
+    float num;
 
+    num = this->toFloat() / fixed.toFloat();
+    aux.setRawBits(roundf(num * (1 << this->fracc)));
+    return(aux);
 }
 
 //BOOOLs
@@ -146,7 +156,7 @@ Fixed Fixed::operator--(int)
 //MIN AND MAX
 const Fixed &Fixed::max(const Fixed &fix1, const Fixed &fix2)
 {
-    if (fix1 < fix2)
+    if (fix1 > fix2)
         return (fix1);
     return(fix2);
 }
@@ -171,5 +181,4 @@ Fixed &Fixed::min(Fixed &fix1, Fixed &fix2)
     return(fix2);
 }
 
-//MULTI I DIVI
 
