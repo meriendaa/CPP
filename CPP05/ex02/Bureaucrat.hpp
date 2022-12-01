@@ -2,6 +2,9 @@
 # define BUREAUCRAT_HPP
 
 #include <iostream>
+
+class Form;
+
 class Bureaucrat{
     public:
         Bureaucrat(std::string name, int grade);
@@ -12,7 +15,8 @@ class Bureaucrat{
         const std::string getName() const;
         void incrementGrade();
         void decrementGrade();
-        
+        void signForm(Form &form) const;
+        void executeForm(Form const & form) const; 
         struct GradeTooHighException : public std::exception
         {
             const char * what () const throw ()
@@ -28,19 +32,6 @@ class Bureaucrat{
                  return "Grade is TOO LOW";
             }
         };
-
-        // class GradeTooHighException : public std::exception {
-        // public:
-        //     virtual const char * what () const throw(){
-        //         return "Grade is TOO HIGH";
-        //     }
-        // };
-        // class GradeTooLowException : public std::exception {
-        // public:
-        //     virtual const char * what () const throw(){
-        //         return "Grade is TOO LOW";
-        //     }
-        // };
 
     private:
         std::string name;

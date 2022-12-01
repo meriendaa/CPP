@@ -17,17 +17,8 @@ int	main(void)
 	}
     {
         try{
-            Bureaucrat b1 = Bureaucrat("teo", 1);
+            Bureaucrat b1 = Bureaucrat("teo", 0);
         } catch(Bureaucrat::GradeTooHighException &e)
-        {
-            std::cout << e.what() << std::endl;
-        }
-
-        try{
-            Bureaucrat b1 = Bureaucrat("Teo", 150);
-            b1.decrementGrade();
-            b1.decrementGrade();
-        } catch(Bureaucrat::GradeTooLowException &e)
         {
             std::cout << e.what() << std::endl;
         }
