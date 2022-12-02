@@ -12,7 +12,7 @@ int main(int argc, char **argv)
     try
     {
         cast = new Cast(argv[1]);
-        std::cout << cast << std::endl;
+        std::cout << *cast << std::endl;
         delete cast;
     }
     catch(std::exception& e)

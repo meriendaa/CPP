@@ -47,5 +47,7 @@ class Cast{
         };
 
 };
+std::ostream& operator<<(std::ostream& os, const Cast &cast);
+
 
 #endif 
