@@ -1,6 +1,6 @@
 NAME = main
 SRC = main.cpp Data.cpp
-CC = c++
+CC = clang++
 CFLAG = -Wall -Wextra -Werror -std=c++98 -MMD
 OBJS = ${SRC:.cpp=.o}
 DEP = ${SRC:.cpp=.d}
