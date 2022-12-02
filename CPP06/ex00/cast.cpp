@@ -79,9 +79,10 @@ type_en Cast::find_type(std::string value)
         else
             return TP_NOT;
     }
-    else{
+    if(i > 0)
         return TP_INT;
-    }
+
+    return TP_NOT;
 }
 
 Cast::Cast(std::string value)
