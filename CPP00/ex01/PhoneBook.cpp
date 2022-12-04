@@ -1,12 +1,13 @@
 #include <iostream>
-#include <iomanip> 
+#include <iomanip>
+#include <cstdlib>
 #include "phonebook.hpp"
 #include "contact.hpp"
 
 PhoneBook::PhoneBook()
 {
     this->size = 0;
-}
+} 
 
 int PhoneBook::addContact()
 {
@@ -53,16 +54,20 @@ void PhoneBook::askForInd() const{
         std::cout << "PHONEBOOK IS EMPTY" << std::endl;
         
     }else{
-            while(loop == 1)
-    {
-        std::cout << "Enter the index [0-7]" << std::endl;
-		std::cout << "> ";
-        std::getline(std::cin, index_str);
-		std::cout << std::endl;
-        index = atoi(index_str.c_str());
-        if (index < this->size)
-            loop = 0;
-    }
+        while(loop == 1)
+        {
+            std::cout << "Enter the index [0-7]" << std::endl;
+            std::cout << "> ";
+            std::getline(std::cin, index_str);
+            if (index_str.length() > 1 || !std::isdigit(index_str[0]))
+                loop = 1;
+            else{
+                std::cout << std::endl;
+                index = atoi(index_str.c_str());
+                if (index < this->size)
+                    loop = 0;
+            }
+        }
     contacts[index].printContact();
     }
 
