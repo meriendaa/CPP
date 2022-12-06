@@ -62,14 +62,29 @@ type_en Cast::find_type(std::string value)
     if (value == "nan" || value == "nanf")
         return TP_NAN;
 
+    while(value[i])
+    {
+        if(value[i] != '\'')
+        {
+            if(value[i + 1] != '\'')
+                return (TP_NOT);
+            this->char_t = value[i];
+            return(TP_CHAR);
+        }
+        i++;
+    }
+    i = 0;
+
     if(value[i] == '-')
         i++;
     while(std::isdigit(value[i]))
         i++;
-    if (value[i] == '.')
+    if (value[i] == '.' && value[i + 1])
     {
         k = i;
         k++;
+        if(value[k] == 'f')
+            return TP_NOT;
         while(std::isdigit(value[k]))
             k++;
         if(value[k] == 'f' && !value[k + 1])
@@ -79,8 +94,12 @@ type_en Cast::find_type(std::string value)
         else
             return TP_NOT;
     }
+    if((value[i] == 'f' && value[i + 1]) || (value[i] == '.' && !value[i + 1]))
+        return TP_NOT;
     if(i > 0)
+    {
         return TP_INT;
+    }
 
     return TP_NOT;
 }
@@ -88,9 +107,13 @@ type_en Cast::find_type(std::string value)
 Cast::Cast(std::string value)
 {
     this->type_t = find_type(value);
-    this->char_t = 0;   
     switch (this->type_t)
     {
+        case TP_CHAR:
+            this->int_t = static_cast<int>(this->char_t);
+            this->float_t = static_cast<float>(this->char_t);
+            this->double_t = static_cast<double>(this->char_t);
+            break ;
         case TP_INT:
             this->int_t = std::atoi(value.c_str());
             this->float_t = static_cast<float>(this->int_t);
