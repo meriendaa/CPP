@@ -12,4 +12,7 @@ class Zombie {
         void announce();
 };
 
+Zombie* newZombie(std::string name);
+void randomChump(std::string name);
+
 #endif

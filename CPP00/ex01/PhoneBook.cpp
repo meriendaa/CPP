@@ -1,8 +1,8 @@
 #include <iostream>
 #include <iomanip>
 #include <cstdlib>
-#include "phonebook.hpp"
-#include "contact.hpp"
+#include "Phonebook.hpp"
+#include "Contact.hpp"
 
 PhoneBook::PhoneBook()
 {

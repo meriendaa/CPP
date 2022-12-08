@@ -1,7 +1,7 @@
 #include  <iostream>
 #include <iomanip> 
-#include "phonebook.hpp"
-#include "contact.hpp"
+#include "Phonebook.hpp"
+#include "Contact.hpp"
 
 void Contact::readInput()
 {
