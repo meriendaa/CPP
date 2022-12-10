@@ -44,7 +44,7 @@ void ScavTrap::attack(const std::string& target)
 {
     if (this->energy != 0)
     {
-        std::cout << "CloudTrap " << this->name << " attacks " << target << " causing " << this->attack_ << " points of damage" << std::endl;
+        std::cout << "SCAV " << this->name << " attacks " << target << " causing " << this->attack_ << " points of damage" << std::endl;
         this->energy--;
     }
     else

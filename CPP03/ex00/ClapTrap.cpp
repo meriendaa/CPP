@@ -7,7 +7,7 @@ ClapTrap::ClapTrap()
     this->name = "Teo";
     this->energy = 10;
     this->health = 10;
-    this->attack_ = 1;
+    this->attack_ = 0;
 }
 
 ClapTrap::ClapTrap(std::string name)
@@ -16,7 +16,7 @@ ClapTrap::ClapTrap(std::string name)
     this->name = name;
     this->energy = 10;
     this->health = 10;
-    this->attack_ = 1;
+    this->attack_ = 0;
 }
 
 ClapTrap::ClapTrap(const ClapTrap &claptrap)
@@ -66,7 +66,7 @@ void ClapTrap::attack(const std::string& target)
 {
     if (this->energy != 0)
     {
-        std::cout << "CloudTrap " << this->name << " attacks " << target << " causing " << this->attack_ << " points of damage" << std::endl;
+        std::cout << "CloudTrap " << this->name << " attacks " << target << ", causing " << this->attack_ << " points of damage!" << std::endl;
         this->energy--;
     }
     else
@@ -81,6 +81,7 @@ void ClapTrap::takeDamage(unsigned int amount)
 
 void ClapTrap::beRepaired(unsigned int amount)
 {
-    this->energy += amount;
+    this->health += amount;
+    this->energy--;
     std::cout << "ClapTrap " << this->name << " take " << amount << " of repair"<< std::endl;
 }

@@ -9,6 +9,7 @@ class Fixed{
         static const int fracc = 8;
     public:
         Fixed();
+        Fixed(int val);
         ~Fixed();
         Fixed (const Fixed &fixed);
         Fixed & operator =(const Fixed &fixed);

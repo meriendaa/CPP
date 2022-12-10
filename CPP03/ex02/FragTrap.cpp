@@ -40,7 +40,7 @@ void FragTrap::attack(const std::string& target)
 {
     if (this->energy != 0)
     {
-        std::cout << "CloudTrap " << this->name << " attacks " << target << " causing " << this->attack_ << " points of damage" << std::endl;
+        std::cout << "FRAG " << this->name << " attacks " << target << " causing " << this->attack_ << " points of damage" << std::endl;
         this->energy--;
     }
     else

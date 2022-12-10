@@ -2,20 +2,20 @@
 
 int	main(void)
 {
-	ClapTrap	ct1("Arthur");
-	ClapTrap	ct2("Victor");
-	ClapTrap	ct3("Thomas");
-	ScavTrap	st1("Téo");
+	ClapTrap	ct1("Dios");
+	ClapTrap	ct2("PEPE");
+	ClapTrap	ct3("Marcos");
+	ScavTrap	st1("Teo");
 	ScavTrap	st2(st1);
 
-	ct1.attack("Victor");
+	ct1.attack("PEPE");
 	ct2.takeDamage(ct1.getAttack());
-	ct1.attack("Thomas");
+	ct1.attack("Marcos");
 	ct3.takeDamage(ct1.getAttack());
-	ct3.attack("Victor");
+	ct3.attack("PEPE");
 	ct2.takeDamage(ct3.getAttack());
 	ct2.beRepaired(10);
-    st1.attack("Thomas");
+    st1.attack("Marcos");
     ct3.takeDamage(st1.getAttack());
     ct3.beRepaired(20);
 	st1.guardGate();

@@ -6,6 +6,11 @@ Fixed::Fixed(void)
     std::cout << "Default constructor called" << std::endl;
     valp = 0;
 }
+Fixed::Fixed(int valor)
+{
+    std::cout << "Default constructor called" << std::endl;
+    valp = valor;
+}
 
 Fixed::~Fixed()
 {

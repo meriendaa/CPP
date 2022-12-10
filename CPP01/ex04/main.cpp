@@ -9,21 +9,32 @@ void replace_word(std::string &buf, int pos, int len, std::string s2)
 
 int main (int argc, char **argv)
 {
-    std::string s1 = argv[2];
-    std::string s2 = argv[3];
-    if (argc < 4 || s1.empty() || s2.empty())
+
+    if (argc < 4)
     {
         std::cout << "error numero de args" << std::endl;
         return(1);
     }
-
+    std::string s1 = argv[2];
+    std::string s2 = argv[3];
+    if(s1.empty() || s2.empty())
+    {
+        std::cout << "Vacias" << std::endl;
+        return(1);
+    }
     std::ifstream fichero(argv[1]);
-    std::ofstream ficheroRep(std::string(argv[1]) + ".replace");
-    if (!fichero.is_open() || !ficheroRep.is_open())
+   
+    if (!fichero.is_open())
     {
         std::cout << "Error al abrir" << std::endl;
         return(1);
     }
+     std::ofstream ficheroRep(std::string(argv[1]) + ".replace");
+     if( !ficheroRep.is_open())
+     {
+        std::cout << "Error al abrir" << std::endl;
+        return(1);
+     }
 
     std::string buf;
     size_t pos = 0;

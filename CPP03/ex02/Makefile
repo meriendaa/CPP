@@ -6,7 +6,7 @@ OBJS = ${SRC:.cpp=.o}
 DEP = ${SRC:.cpp=.d}
 RM = rm -f
 
-%.o: %.cpp
+%.o: %.cpp Makefile
 	$(CC) $(CFLAG) -c $< -o $@
 
 ${NAME}:	${OBJS}

@@ -82,5 +82,6 @@ void ClapTrap::takeDamage(unsigned int amount)
 void ClapTrap::beRepaired(unsigned int amount)
 {
     this->energy += amount;
+    this->energy--;
     std::cout << "ClapTrap " << this->name << " take " << amount << " of repair"<< std::endl;
 }
